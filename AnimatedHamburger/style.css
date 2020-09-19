@@ -1,0 +1,70 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #272727;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.menu-btn{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    height: 80px;
+    cursor: pointer;
+    transition: all .5s ease-in-out;
+    border: 3px solid #fff;
+}
+
+.menu-btn_burger{  /*Will create height and wigth for main mid line*/
+    width: 50px;
+    height: 6px;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(255, 101, 47, .2) ;
+    transition: all .5s ease-in-out;
+}
+
+.menu-btn_burger::before,
+.menu-btn_burger::after{  /*Will create height and wigth for after before line*/
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 6px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(255, 101, 47, .2) ;
+    transition: all .5s ease-in-out;
+}
+
+.menu-btn_burger::before{
+    transform: translateY(-16px); /*will move the before line to up word so that we can see saperately  then form main-btn_burger*/
+}
+
+.menu-btn_burger::after{
+    transform: translateY(16px);
+}
+
+/*Animation*/
+.menu-btn.open .menu-btn_burger{
+    transform: translateX(-50px); /*Will make the three line -50 back in x direction*/
+    background: transparent; /*Will make the main (mid) line transeparent makes hide*/
+    box-shadow: none;
+
+}
+
+.menu-btn.open .menu-btn_burger::before{
+    transform: rotate(45deg) translate(35px, -35px); /*Will rotate the before main-btn_burger  and translate will not let the line to leve the position*/
+}
+
+.menu-btn.open .menu-btn_burger::after{
+    transform: rotate(-45deg) translate(35px, 35px);/*Will rotate the before main-btn_burger  and translate will not let the line to leve the position*/
+}
